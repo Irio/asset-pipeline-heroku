@@ -1,8 +1,12 @@
 defaults: &defaults
-  adapter: sqlite
+  adapter: postgresql
+  host: localhost
+  enconding: unicode
+  template: template0
 
 development:
-  database: db/asset_pipeline_development.db
+  database: asset_pipeline_development
+  username: postgres
   <<: *defaults
 
   # Add more repositories
@@ -17,8 +21,9 @@ development:
   #     ...
 
 test:
-  database: db/asset_pipeline_test.db
+  database: asset_pipeline_test
   <<: *defaults
 production:
-  database: db/asset_pipeline_production.db
+  database: asset_pipeline
+  username: postgres
   <<: *defaults
